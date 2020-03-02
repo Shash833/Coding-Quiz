@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Coding Quiz</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="Assets/style.css">
+
+</head>
+
+<body class="container-md">
+    <header class="row">
+        <!--Heading-->
+        <h1 class="col-md-7"> Coding Quiz!</h1>
+        <!--Timer-->
+        <a class="col-md-3" id="timer">Time Left: <span id=seconds>00</span></a>
+        <!--Link to highscores-->
+        <a class="col-md-2" id="highscoresNav"> View Highscores</a>
+    </header>
+
+    <main>
+        <!--Introduction, will be removed when 'Start Quiz' button is pressed-->
+        <section id="intro">
+            <h2>Introduction</h2>
+            <p>Welcome to the coding quiz, press next to start.
+                <br>You have 60 seconds to complete six questions. Avoid getting questions wrong or you will have time
+                deducted.
+            </p>
+            <button class="button">Start Quiz</button>
+        </section>
+
+        <!--Quiz questions and answers-->
+        <section id="quiz">
+            <h2 class="title"></h2>
+            <p id="text"></p>
+            <ol id="answer">
+                <!--List of potential answers will be added through JS-->
+            </ol>
+            <div id="result"></div>
+        </section>
+
+        <!--User Score-->
+        <section id="userScore">
+            <h2 id=scoreTitle></h2>
+            <p id="score">
+                <!--current score displayed in this element-->
+            </p>
+            <form id="scoreForm">
+                <!--input box for user initials will be added through JS-->
+            </form>
+        </section>
+
+        <!--Highscores-->
+        <section id="highscores">
+            <h2 id="highscoreTitle"> </h2>
+            <ul id="ladder">
+                <!--Score array from local storage to be added as a list through JS-->
+            </ul>
+            <div id=HSButtons>
+                <!--Buttons in highscore page will be added through JS-->
+            </div>
+        </section>
+    </main>
+    <script src="Assets/quiz.js"></script>
+</body>
+
+</html>

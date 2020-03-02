@@ -1,0 +1,47 @@
+header{
+    background-color: rgb(68, 110, 134);
+    color: white;
+    padding-top: 10px;
+}
+
+#timer, #highscoresNav {
+    font-size: 20px;
+    float: center;
+}
+
+#highscoresNav{
+    cursor: pointer;
+}
+
+main{
+    margin-top: 50px;
+}
+
+li{
+    background-color: rgb(113, 168, 185);
+    width: 25%;
+    margin: 1%;
+    list-style-position: inside;
+    cursor: pointer;
+}
+li:hover{
+    background-color: rgb(146, 187, 199);
+}
+
+.button{
+    margin-top: 50px;
+}
+
+input{
+    margin-left: 10px;
+}
+
+.HS{
+    list-style-type: none;
+    width: 50%;
+    background-color: rgb(113, 168, 185);
+}
+
+button{
+    margin-left: 100px;
+}
