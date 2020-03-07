@@ -91,40 +91,39 @@ button.addEventListener("click", function quiz() {
     intro.innerHTML = ""
     quizResult.innerHTML = ""
     answerContainer.innerHTML = ""
-    //Until user answers 6 questions, quiz will run//
-    if (currentQuestionIndex < 6) {
-        //Apply text from quiz array into HTML elements//
-        quizTitle.innerText = quizArray[currentQuestionIndex].title;
-        quizQuestion.innerText = quizArray[currentQuestionIndex].text;
-        var answerOptions = quizArray[currentQuestionIndex].answers
-        //create list elements for answer options//
-        for (var i = 0; i < answerOptions.length; i++) {
-            let selectAnswer = document.createElement("li");
-            selectAnswer.innerText = answerOptions[i];
-            answerContainer.appendChild(selectAnswer);
-            //Click event listener for user's selected answer. When answer is clicked increment correct or incorrect variable, display result,increment currentQuestionIndex and move onto next question//
-            selectAnswer.addEventListener("click", function () {
-                if (selectAnswer.innerText == quizArray[currentQuestionIndex].answer) {
-                    correct++;
-                    quizResult.innerText = "Correct!"
-                    currentQuestionIndex++
-                    setTimeout(() => { quiz() }, 1000) //1 second delay to display message before moving to next question//
-                }
-                else {
-                    incorrect++;
-                    quizResult.innerText = "Incorrect! 10 seconds have been deducted"
-                    currentQuestionIndex++
-                    secCount = secCount - 10; //Deduct 10 seconds if answer is wrong//
-                    setTimeout(() => { quiz() }, 1000) //1 second delay to display message before moving to next question//
-                }
-            });
-        }
-    }
-    //When user has answered 6 questions, counter will be set to 0 and quiz will end//
-    else {
+
+        //When user has answered 6 questions, counter will be set to 0 and quiz will end//
+    if (currentQuestionIndex >= 6) {
         secCount = 0
         quizPage.innerHTML = ""
+        return;
     }
+    //Apply text from quiz array into HTML elements//
+    quizTitle.innerText = quizArray[currentQuestionIndex].title;
+    quizQuestion.innerText = quizArray[currentQuestionIndex].text;
+    var answerOptions = quizArray[currentQuestionIndex].answers
+    //create list elements for answer options//
+    for (var i = 0; i < answerOptions.length; i++) {
+        let selectAnswer = document.createElement("li");
+        selectAnswer.innerText = answerOptions[i];
+        answerContainer.appendChild(selectAnswer);
+        //Click event listener for user's selected answer. When answer is clicked increment correct or incorrect variable, display result,increment currentQuestionIndex and move onto next question//
+        selectAnswer.addEventListener("click", function () {
+            if (selectAnswer.innerText == quizArray[currentQuestionIndex].answer) {
+                correct++;
+                quizResult.innerText = "Correct!"
+                currentQuestionIndex++
+                setTimeout(() => { quiz() }, 1000) //1 second delay to display message before moving to next question//
+            } else {
+                incorrect++;
+                quizResult.innerText = "Incorrect! 10 seconds have been deducted"
+                currentQuestionIndex++
+                secCount = secCount - 10; //Deduct 10 seconds if answer is wrong//
+                setTimeout(() => { quiz() }, 1000) //1 second delay to display message before moving to next question//
+            }
+        });
+    }
+
 })
 
 //Score page (is called when the timer=0)//
